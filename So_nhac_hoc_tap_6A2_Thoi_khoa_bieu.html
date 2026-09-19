@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Sổ nhắc học tập – Lớp 6A2</title>
+<style>
+:root{
+  --blue:#1658d8;--blue2:#0d3ca8;--blue3:#eaf2ff;--yellow:#ffd15a;
+  --ink:#1d2a3b;--muted:#6e7b8c;--line:#dfe7f2;--bg:#f3f7fc;--card:#fff;
+  --red:#e85b52;--green:#18a974;--orange:#f3a533;--violet:#7b61c9;
+  --shadow:0 12px 35px rgba(24,71,145,.12);
+}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#edf5ff 0,#f8fbff 380px,#f3f7fc 100%)}
+button,input,select,textarea{font:inherit} button{cursor:pointer}.app{max-width:1100px;margin:auto;padding:18px 16px 72px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:12px}.logo{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,var(--blue),var(--blue2));color:white;font-weight:900;font-size:20px;box-shadow:var(--shadow)}
+.brand h1{font-size:24px;margin:0}.brand p{margin:3px 0 0;color:var(--muted);font-size:14px}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:14px;padding:11px 15px;font-weight:750;background:white;color:var(--ink);box-shadow:0 4px 16px rgba(22,67,130,.09)}.btn.primary{background:var(--blue);color:white}.btn.soft{background:var(--blue3);color:var(--blue2)}.btn.danger{color:#b83934;background:#fff2f1}.btn:active{transform:translateY(1px)}
+.hero{display:grid;grid-template-columns:1.18fr .82fr;gap:20px;background:linear-gradient(135deg,#0e47c4 0,#1762df 60%,#2976ee 100%);color:white;border-radius:30px;padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;border:34px solid rgba(255,255,255,.07)}.hero:before{width:260px;height:260px;right:-80px;top:-120px}.hero:after{width:180px;height:180px;left:-100px;bottom:-120px}
+.calendar-badge{background:#fff;color:var(--ink);width:138px;border-radius:24px;padding:15px 14px;text-align:center;box-shadow:0 10px 24px rgba(0,0,0,.17);transform:rotate(-2deg);position:relative;z-index:1}.calendar-badge .small{font-size:11px;letter-spacing:2px;font-weight:800;color:#677}.calendar-badge .day{font-size:48px;line-height:1;font-weight:900;color:var(--blue)}.calendar-badge .month{font-weight:800;margin-top:7px}.hero h2{font-size:clamp(36px,5vw,58px);line-height:1.02;margin:22px 0 12px;font-weight:850;letter-spacing:-1.5px}.hero h2 span{color:var(--yellow)}.hero p{font-size:18px;line-height:1.55;margin:0;max-width:680px;color:#eaf2ff}.hero-right{display:flex;align-items:center;justify-content:center}.illustration{width:100%;min-height:280px;border-radius:25px;background:rgba(255,255,255,.92);display:grid;place-items:center;color:var(--blue2);position:relative;overflow:hidden}.board{width:78%;height:48%;border-radius:12px;background:#155d4d;box-shadow:inset 0 0 0 8px #deb887;position:absolute;top:25px}.desk{position:absolute;bottom:22px;width:82%;height:82px;border-radius:16px;background:#deb26a;box-shadow:inset 0 -18px 0 #bd8c43}.kids{position:absolute;bottom:82px;font-size:82px;letter-spacing:-16px;filter:drop-shadow(0 5px 3px rgba(0,0,0,.12))}.class-tag{position:absolute;left:18px;bottom:18px;background:#23304d;color:#ffd15a;font-size:19px;font-weight:900;border-radius:14px;padding:9px 14px;border:2px solid rgba(255,255,255,.55)}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:34px 2px 14px}.section-kicker{color:var(--blue);font-weight:900;letter-spacing:2px;font-size:12px}.section-head h3{margin:5px 0 0;font-size:31px}.section-head p{margin:5px 0 0;color:var(--muted)}
+.dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.stat{background:white;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 7px 20px rgba(31,77,141,.06)}.stat b{font-size:28px;display:block}.stat span{color:var(--muted);font-size:13px}.stat.overdue b{color:var(--red)}.stat.today b{color:var(--orange)}.stat.done b{color:var(--green)}
+.toolbar{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-bottom:18px}.chip{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 14px;font-weight:750;color:#566477}.chip.active{background:var(--blue);color:white;border-color:var(--blue)}.search{margin-left:auto;min-width:250px;display:flex;align-items:center;background:white;border:1px solid var(--line);border-radius:14px;padding:0 12px}.search input{border:0;outline:0;background:transparent;width:100%;padding:10px}
+.day-group{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:24px;padding:16px;margin:14px 0;box-shadow:0 8px 24px rgba(25,68,124,.06)}.day-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.day-title h4{font-size:19px;margin:0;color:var(--blue2)}.count{font-size:12px;background:#eef4ff;color:var(--blue2);border-radius:999px;padding:7px 10px;font-weight:800}.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.hw{background:white;border-radius:18px;padding:16px;border:1px solid #e4eaf3;border-top:4px solid var(--blue);position:relative}.hw.priority{border:2px solid #ef7268;border-top-width:4px;background:#fffdfb}.hw.done{opacity:.63}.hw.done .content{text-decoration:line-through}.row{display:flex;align-items:center;justify-content:space-between;gap:8px}.subject{font-size:13px;font-weight:900;color:var(--blue2)}.type{font-size:11px;font-weight:800;padding:5px 8px;border-radius:999px;background:#f2f5fa;color:#58657a}.type.note{background:#fff6df;color:#9b6a00}.type.test{background:#fff0ef;color:#b7443d}.priority-pill{font-size:11px;font-weight:900;background:#ffeae8;color:#c9463f;padding:5px 8px;border-radius:999px}.content{font-size:16px;line-height:1.45;margin:12px 0 10px;white-space:pre-wrap}.meta{font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px}.item-actions{display:flex;gap:7px;margin-top:12px}.mini{border:0;border-radius:10px;padding:8px 10px;font-size:12px;font-weight:800;background:#f0f4fa;color:#43536a}.mini.donebtn{background:#e8f7f1;color:#0f7d57}.mini.edit{background:#edf3ff;color:#2457b8}.mini.delete{background:#fff0ef;color:#b94139}
+.empty{padding:42px 20px;text-align:center;background:white;border:1px dashed #b9c7d9;border-radius:22px;color:var(--muted)}
+.fab{position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:22px;border:0;background:var(--blue);color:#fff;font-size:34px;box-shadow:0 12px 30px rgba(16,74,196,.33);z-index:12}
+.modal-backdrop{position:fixed;inset:0;background:rgba(22,30,43,.45);display:none;align-items:flex-end;justify-content:center;z-index:20;padding:16px}.modal-backdrop.show{display:flex}.modal{background:white;width:min(720px,100%);border-radius:26px;padding:22px;max-height:92vh;overflow:auto;box-shadow:0 24px 60px rgba(0,0,0,.28)}.modal h3{margin:0 0 4px;font-size:24px}.modal .sub{color:var(--muted);margin:0 0 18px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:800;color:#5f6b7b}.field input,.field select,.field textarea{border:1px solid #d7e0eb;border-radius:12px;padding:11px 12px;outline:none;background:#fbfdff}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:#7aa6ff;box-shadow:0 0 0 3px rgba(57,111,221,.11)}.checkline{display:flex;align-items:center;gap:9px;background:#fff8e5;border-radius:12px;padding:10px 12px}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+.notice{margin-top:26px;background:#fffdf3;border:1px solid #f1e4ae;border-radius:18px;padding:14px 16px;color:#6a5a21;font-size:13px;line-height:1.55}.footer{text-align:center;color:#8a96a5;font-size:12px;margin-top:20px}
+@media(max-width:760px){.app{padding:12px 12px 90px}.topbar{align-items:flex-start}.brand h1{font-size:20px}.top-actions .btn:not(.primary){display:none}.hero{grid-template-columns:1fr;padding:20px;border-radius:24px}.hero-right{display:none}.calendar-badge{width:118px}.hero h2{font-size:42px}.hero p{font-size:16px}.dashboard{grid-template-columns:repeat(2,1fr)}.items{grid-template-columns:1fr}.search{order:5;margin-left:0;width:100%;min-width:0}.section-head h3{font-size:27px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.modal{border-radius:24px 24px 12px 12px}.fab{right:15px;bottom:15px}}
+
+/* ===== THỜI KHÓA BIỂU 6A02T ===== */
+.tkb-wrap{margin:22px 0 30px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:16px;box-shadow:0 8px 24px rgba(25,68,124,.06)}
+.tkb-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:13px}.tkb-head h3{margin:4px 0 0;font-size:25px}.tkb-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.tkb-tip{font-size:12px;color:var(--blue2);background:var(--blue3);padding:8px 11px;border-radius:999px;font-weight:800;white-space:nowrap}
+.tkb-scroll{overflow-x:auto;padding-bottom:3px}.tkb{width:100%;min-width:930px;border-collapse:separate;border-spacing:6px;table-layout:fixed}.tkb th{font-size:12px;color:#69778b;padding:7px 5px;text-align:center}.tkb th:first-child{width:118px}.tkb-time{text-align:center!important;background:#f5f8fc;border-radius:12px;padding:9px 6px!important;color:#4f5f73!important;vertical-align:middle}.tkb-time b{display:block;color:#26374f;font-size:13px}.tkb-time span{display:block;font-size:11px;margin-top:3px}.tkb-cell{border:0;border-radius:13px;padding:10px 9px;text-align:left;vertical-align:top;min-height:60px;background:#f5f7fb;box-shadow:inset 4px 0 0 #aab5c3;transition:.15s ease;cursor:pointer}.tkb-cell:hover{transform:translateY(-1px);box-shadow:inset 4px 0 0 #6d7c91,0 7px 18px rgba(31,77,141,.10)}.tkb-cell b{display:block;font-size:12px;line-height:1.2;color:#25354b}.tkb-cell small{display:block;color:#708096;font-size:10px;margin-top:4px;line-height:1.2}.tkb-empty{background:#fafbfc;box-shadow:none;color:#c6ccd4;text-align:center;cursor:default}.tkb-empty:hover{transform:none;box-shadow:none}.tkb-break td{background:#eef3f9;color:#79879a;text-align:center;font-size:11px;font-style:italic;padding:5px;border-radius:10px}.tkb-lunch td{background:#e9f0f7;color:#44556d;text-align:center;font-size:12px;font-weight:900;padding:6px;border-radius:10px}.tkb-cell.toan{background:#fff0f0;box-shadow:inset 4px 0 0 #ef5350}.tkb-cell.van{background:#edf4ff;box-shadow:inset 4px 0 0 #3e7ed8}.tkb-cell.anh{background:#edfff4;box-shadow:inset 4px 0 0 #24b36b}.tkb-cell.khtn{background:#fffbdc;box-shadow:inset 4px 0 0 #d9a900}.tkb-cell.sudia{background:#f9ecff;box-shadow:inset 4px 0 0 #c84acb}.tkb-cell.gdtc{background:#fff1dc;box-shadow:inset 4px 0 0 #e87920}.tkb-cell.tin{background:#e7fbfc;box-shadow:inset 4px 0 0 #1bb6c9}.tkb-cell.stem{background:#eef0ff;box-shadow:inset 4px 0 0 #6570d8}.tkb-cell.nghethuat{background:#f3f4f8;box-shadow:inset 4px 0 0 #8d96a5}.tkb-cell.ktpl{background:#f4f5f7;box-shadow:inset 4px 0 0 #727c8b}.tkb-cell.congnghe{background:#e7fbfc;box-shadow:inset 4px 0 0 #16a6b9}
+.quick-tkb{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.quick-tkb .btn{box-shadow:none;border:1px solid var(--line);padding:9px 12px}
+.lesson-preview{grid-column:1/-1;display:none;background:#edf5ff;border:1px solid #cee0ff;border-radius:14px;padding:11px 12px;color:#244e9b;font-size:13px;line-height:1.45}.lesson-preview.show{display:block}.lesson-preview b{color:#123c8b}.field input[readonly]{background:#f2f5f9;color:#536276}
+@media(max-width:760px){.tkb-wrap{padding:12px;border-radius:20px}.tkb-head{align-items:flex-start}.tkb-tip{display:none}.tkb-head h3{font-size:22px}.tkb-scroll{margin:0 -3px}.quick-tkb{display:grid;grid-template-columns:1fr 1fr}}
+
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="logo">6A2</div><div><h1>Sổ nhắc học tập</h1><p>Lớp 6A2 • Cùng nhau nhớ bài, cùng nhau tiến bộ</p></div></div>
+    <div class="top-actions">
+      <button class="btn soft" id="exportBtn">Xuất dữ liệu</button>
+      <button class="btn soft" id="importBtn">Nhập dữ liệu</button>
+      <button class="btn soft" id="tkbBtn">📅 Thời khóa biểu</button>
+      <button class="btn primary" id="addBtn">＋ Thêm BTVN</button>
+      <input id="importFile" type="file" accept="application/json" hidden>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="calendar-badge"><div class="small">HÔM NAY</div><div class="day" id="heroDay">18</div><div class="month" id="heroMonth">Tháng 9</div></div>
+      <h2>Sắp tới mình cần <span>hoàn thành gì?</span></h2>
+      <p>Bài tập và dặn dò được sắp xếp theo ngày đến hạn. Bạn nào nhìn thấy BTVN mới có thể nhập vào sổ để cả lớp cùng theo dõi.</p>
+    </div>
+    <div class="hero-right"><div class="illustration"><div class="board"></div><div class="kids">👧🧒👦👧🧒</div><div class="desk"></div><div class="class-tag">6A2</div></div></div>
+  </section>
+
+  <section class="tkb-wrap" id="timetable">
+    <div class="tkb-head">
+      <div>
+        <div class="section-kicker">THỜI KHÓA BIỂU HK1 • NĂM HỌC 2026–2027</div>
+        <h3>Thời khóa biểu lớp 6A02T</h3>
+        <p>Áp dụng từ 15/09/2026 • Bấm trực tiếp vào một tiết để nhập BTVN nhanh cho đúng môn, đúng tiết.</p>
+      </div>
+      <div class="tkb-tip">📅 Bấm tiết học → Thêm BTVN</div>
+    </div>
+    <div class="tkb-scroll">
+      <table class="tkb" aria-label="Thời khóa biểu lớp 6A02T">
+        <thead><tr><th>TIẾT / THỜI GIAN</th><th>THỨ 2</th><th>THỨ 3</th><th>THỨ 4</th><th>THỨ 5</th><th>THỨ 6</th><th>THỨ 7</th></tr></thead>
+        <tbody>
+          <tr><th class="tkb-time"><b>S1</b><span>07:15–08:00</span></th>
+            <td class="tkb-cell congnghe" data-day="1" data-period="S1"><b>C.NGHỆ</b><small>C04 • C.Trang</small></td>
+            <td class="tkb-cell gdtc" data-day="2" data-period="S1"><b>GDTC / T.DỤC</b><small>E05 • N.Trung</small></td>
+            <td class="tkb-cell ktpl" data-day="3" data-period="S1"><b>KTPL / GDCD</b><small>G02 • N.Bích</small></td>
+            <td class="tkb-cell tin" data-day="4" data-period="S1"><b>TIN</b><small>I01 • T.An</small></td>
+            <td class="tkb-cell nghethuat" data-day="5" data-period="S1"><b>NHẠC</b><small>N02 • N.Trúc</small></td>
+            <td class="tkb-cell tkb-empty">—</td></tr>
+          <tr><th class="tkb-time"><b>S2</b><span>08:05–08:50</span></th>
+            <td class="tkb-cell khtn" data-day="1" data-period="S2"><b>HÓA / KHTN</b><small>H03 • N.Giang</small></td>
+            <td class="tkb-cell gdtc" data-day="2" data-period="S2"><b>GDTC / T.DỤC</b><small>E05 • N.Trung</small></td>
+            <td class="tkb-cell khtn" data-day="3" data-period="S2"><b>HÓA / KHTN</b><small>H03 • N.Giang</small></td>
+            <td class="tkb-cell anh" data-day="4" data-period="S2"><b>T.ANH</b><small>A10 • N.Thư</small></td>
+            <td class="tkb-cell sudia" data-day="5" data-period="S2"><b>SỬ / LSEL</b><small>U05 • H.Tú</small></td>
+            <td class="tkb-cell tkb-empty">—</td></tr>
+          <tr class="tkb-break"><td colspan="7">Ra chơi 20 phút • 08:50–09:10</td></tr>
+          <tr><th class="tkb-time"><b>S3</b><span>09:10–09:55</span></th>
+            <td class="tkb-cell anh" data-day="1" data-period="S3"><b>TABN</b><small>TABN.6</small></td>
+            <td class="tkb-cell khtn" data-day="2" data-period="S3"><b>HÓA / KHTN</b><small>H03 • N.Giang</small></td>
+            <td class="tkb-cell khtn" data-day="3" data-period="S3"><b>HÓA / KHTN</b><small>H03 • N.Giang</small></td>
+            <td class="tkb-cell toan" data-day="4" data-period="S3"><b>TOÁN</b><small>T01 • L.Anh</small></td>
+            <td class="tkb-cell anh" data-day="5" data-period="S3"><b>TABN</b><small>TABN.6</small></td>
+            <td class="tkb-cell tkb-empty">—</td></tr>
+          <tr><th class="tkb-time"><b>S4</b><span>10:00–10:45</span></th>
+            <td class="tkb-cell stem" data-day="1" data-period="S4"><b>STEM</b><small>StemK6</small></td>
+            <td class="tkb-cell anh" data-day="2" data-period="S4"><b>TABN</b><small>TABN.6</small></td>
+            <td class="tkb-cell toan" data-day="3" data-period="S4"><b>TOÁN</b><small>T01 • L.Anh</small></td>
+            <td class="tkb-cell toan" data-day="4" data-period="S4"><b>TOÁN</b><small>T01 • L.Anh</small></td>
+            <td class="tkb-cell stem" data-day="5" data-period="S4"><b>STEM</b><small>StemK6</small></td>
+            <td class="tkb-cell tkb-empty">—</td></tr>
+          <tr class="tkb-lunch"><td colspan="7">HỌC SINH NGHỈ TRƯA</td></tr>
+          <tr><th class="tkb-time"><b>C1</b><span>13:15–14:00</span></th>
+            <td class="tkb-cell van" data-day="1" data-period="C1"><b>VĂN</b><small>V14 • P.Khánh</small></td>
+            <td class="tkb-cell anh" data-day="2" data-period="C1"><b>T.ANH</b><small>A10 • N.Thư</small></td>
+            <td class="tkb-cell nghethuat" data-day="3" data-period="C1"><b>MỸ THUẬT</b><small>M02 • P.Tân</small></td>
+            <td class="tkb-cell nghethuat" data-day="4" data-period="C1"><b>N.KHIẾU</b><small>NK_6</small></td>
+            <td class="tkb-cell anh" data-day="5" data-period="C1"><b>T.ANH</b><small>A10 • N.Thư</small></td>
+            <td class="tkb-cell tkb-empty">—</td></tr>
+          <tr><th class="tkb-time"><b>C2</b><span>14:05–14:50</span></th>
+            <td class="tkb-cell van" data-day="1" data-period="C2"><b>VĂN</b><small>V14 • P.Khánh</small></td>
+            <td class="tkb-cell van" data-day="2" data-period="C2"><b>VĂN</b><small>V14 • P.Khánh</small></td>
+            <td class="tkb-cell anh" data-day="3" data-period="C2"><b>T.ANH</b><small>A10 • N.Thư</small></td>
+            <td class="tkb-cell nghethuat" data-day="4" data-period="C2"><b>N.KHIẾU</b><small>NK_6</small></td>
+            <td class="tkb-cell toan" data-day="5" data-period="C2"><b>TOÁN</b><small>T01 • L.Anh</small></td>
+            <td class="tkb-cell tkb-empty">—</td></tr>
+          <tr class="tkb-break"><td colspan="7">Ra chơi 20 phút • 14:50–15:10</td></tr>
+          <tr><th class="tkb-time"><b>C3</b><span>15:10–15:55</span></th>
+            <td class="tkb-cell toan" data-day="1" data-period="C3"><b>TOÁN</b><small>T01 • L.Anh</small></td>
+            <td class="tkb-cell van" data-day="2" data-period="C3"><b>VĂN</b><small>V14 • P.Khánh</small></td>
+            <td class="tkb-cell anh" data-day="3" data-period="C3"><b>T.ANH</b><small>A10 • N.Thư</small></td>
+            <td class="tkb-cell sudia" data-day="4" data-period="C3"><b>ĐỊA / LSEL</b><small>D05 • H.Nữ</small></td>
+            <td class="tkb-cell toan" data-day="5" data-period="C3"><b>TOÁN</b><small>T01 • L.Anh</small></td>
+            <td class="tkb-cell tkb-empty">—</td></tr>
+          <tr><th class="tkb-time"><b>C4</b><span>16:00–16:45</span></th>
+            <td class="tkb-cell ktpl" data-day="1" data-period="C4"><b>HĐTN_SHL</b><small>T01 • L.Anh</small></td>
+            <td class="tkb-cell tin" data-day="2" data-period="C4"><b>TIN</b><small>I01 • T.An</small></td>
+            <td class="tkb-cell sudia" data-day="3" data-period="C4"><b>ĐỊA / LSEL</b><small>D05 • H.Nữ</small></td>
+            <td class="tkb-cell tkb-empty">—</td><td class="tkb-cell tkb-empty">—</td><td class="tkb-cell tkb-empty">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="quick-tkb">
+      <button class="btn soft" type="button" id="todayScheduleBtn">📍 Xem tiết hôm nay</button>
+      <button class="btn" type="button" id="scrollHomeworkBtn">📘 Đi đến BTVN & dặn dò</button>
+    </div>
+  </section>
+
+  <div class="section-head" id="homeworkSection"><div><div class="section-kicker">THEO DÕI THEO NGÀY ĐẾN HẠN</div><h3>BTVN & dặn dò sắp tới</h3><p>Ưu tiên việc gần đến hạn trước. Có thể đánh dấu hoàn thành ngay trên thẻ.</p></div></div>
+
+  <section class="dashboard">
+    <div class="stat"><b id="statAll">0</b><span>Tổng mục đang lưu</span></div>
+    <div class="stat today"><b id="statToday">0</b><span>Đến hạn hôm nay</span></div>
+    <div class="stat overdue"><b id="statOverdue">0</b><span>Đã quá hạn</span></div>
+    <div class="stat done"><b id="statDone">0</b><span>Đã hoàn thành</span></div>
+  </section>
+
+  <div class="toolbar">
+    <button class="chip active" data-filter="all">Tất cả</button>
+    <button class="chip" data-filter="homework">Bài tập</button>
+    <button class="chip" data-filter="note">Dặn dò</button>
+    <button class="chip" data-filter="test">Kiểm tra</button>
+    <button class="chip" data-filter="priority">Ưu tiên</button>
+    <button class="chip" data-filter="done">Đã xong</button>
+    <div class="search">🔎<input id="searchInput" placeholder="Tìm môn học hoặc nội dung..."></div>
+  </div>
+
+  <main id="list"></main>
+
+  <div class="notice"><b>Lưu ý về chia sẻ dữ liệu:</b> phiên bản HTML này lưu BTVN ngay trong trình duyệt của thiết bị đang dùng. Nếu mở trên thiết bị khác, dữ liệu không tự đồng bộ. Nút <b>Xuất dữ liệu / Nhập dữ liệu</b> giúp chuyển dữ liệu giữa các máy. Khi cần cả lớp cùng nhập và thấy ngay trên mọi điện thoại, có thể nâng cấp bản này sang Firebase hoặc Google Sheets.</div>
+  <div class="footer">Sổ nhắc học tập 6A2 • Dữ liệu được lưu tự động trên thiết bị</div>
+</div>
+<button class="fab" id="fab" title="Thêm bài tập">＋</button>
+
+<div class="modal-backdrop" id="modalWrap">
+  <div class="modal">
+    <h3 id="modalTitle">Thêm BTVN / dặn dò</h3>
+    <p class="sub">Nhập ngắn gọn, rõ môn và hạn nộp để cả lớp dễ theo dõi.</p>
+    <form id="hwForm">
+      <div class="grid">
+        <div class="field"><label>Môn học *</label><select id="subject" required>
+          <option value="">Chọn môn</option><option>Toán</option><option>Ngữ văn</option><option>Tiếng Anh</option><option>Khoa học tự nhiên</option><option>Lịch sử và Địa lí</option><option>Tin học</option><option>Công nghệ</option><option>GDCD</option><option>Âm nhạc</option><option>Mĩ thuật</option><option>GDTC</option><option>Hoạt động trải nghiệm</option><option>Khác</option>
+        </select></div>
+        <div class="field"><label>Loại *</label><select id="type" required><option value="homework">Bài tập</option><option value="note">Dặn dò</option><option value="test">Kiểm tra</option></select></div>
+        <div class="field full"><label>Nội dung *</label><textarea id="content" required placeholder="VD: Làm bài 1, 2, 3 trang 45; học thuộc từ mới Unit 2..."></textarea></div>
+        <div class="field"><label>Ngày có tiết học</label><input type="date" id="lessonDate"></div>
+        <div class="field"><label>Tiết học</label><select id="period"><option value="">Chọn tiết</option><option>S1</option><option>S2</option><option>S3</option><option>S4</option><option>C1</option><option>C2</option><option>C3</option><option>C4</option></select></div>
+        <div class="field"><label>Giờ học</label><input id="lessonTime" readonly placeholder="Tự động theo tiết"></div>
+        <div class="field"><label>Ngày giáo viên giao</label><input type="date" id="assigned"></div>
+        <div class="field"><label>Ngày đến hạn *</label><input type="date" id="due" required></div>
+        <div class="field"><label>Người nhập</label><input id="author" placeholder="Tên bạn (có thể để trống)"></div>
+        <div class="field full"><label>Ghi chú</label><input id="note" placeholder="VD: nộp vở, mang compa, học thuộc bài..."></div>
+        <div class="lesson-preview" id="lessonPreview"></div>
+        <div class="field full"><label class="checkline"><input type="checkbox" id="priority"> Đánh dấu CẦN ƯU TIÊN / rất dễ quên</label></div>
+      </div>
+      <div class="modal-actions"><button type="button" class="btn" id="cancelBtn">Hủy</button><button type="submit" class="btn primary">Lưu vào sổ</button></div>
+    </form>
+  </div>
+</div>
+
+<script>
+const KEY='so-nhac-hoc-tap-6a2-v1';
+let data=[]; let editingId=null; let currentFilter='all';
+const PERIOD_TIME={S1:'07:15–08:00',S2:'08:05–08:50',S3:'09:10–09:55',S4:'10:00–10:45',C1:'13:15–14:00',C2:'14:05–14:50',C3:'15:10–15:55',C4:'16:00–16:45'};
+const SCHEDULE={
+  1:{S1:'Công nghệ',S2:'Khoa học tự nhiên',S3:'TABN',S4:'STEM',C1:'Ngữ văn',C2:'Ngữ văn',C3:'Toán',C4:'Hoạt động trải nghiệm'},
+  2:{S1:'GDTC',S2:'GDTC',S3:'Khoa học tự nhiên',S4:'TABN',C1:'Tiếng Anh',C2:'Ngữ văn',C3:'Ngữ văn',C4:'Tin học'},
+  3:{S1:'GDCD',S2:'Khoa học tự nhiên',S3:'Khoa học tự nhiên',S4:'Toán',C1:'Mĩ thuật',C2:'Tiếng Anh',C3:'Tiếng Anh',C4:'Lịch sử và Địa lí'},
+  4:{S1:'Tin học',S2:'Tiếng Anh',S3:'Toán',S4:'Toán',C1:'Năng khiếu',C2:'Năng khiếu',C3:'Lịch sử và Địa lí',C4:''},
+  5:{S1:'Âm nhạc',S2:'Lịch sử và Địa lí',S3:'TABN',S4:'STEM',C1:'Tiếng Anh',C2:'Toán',C3:'Toán',C4:''}
+};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+function ymd(d=new Date()){const z=n=>String(n).padStart(2,'0'); return `${d.getFullYear()}-${z(d.getMonth()+1)}-${z(d.getDate())}`}
+function parseDate(s){return new Date(s+'T00:00:00')}
+function fmt(s){if(!s)return ''; const d=parseDate(s); return d.toLocaleDateString('vi-VN',{weekday:'long',day:'2-digit',month:'2-digit',year:'numeric'})}
+function shortFmt(s){if(!s)return ''; const d=parseDate(s); return d.toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'})}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function lessonFor(dateStr,period){if(!dateStr||!period)return '';const d=parseDate(dateStr);return SCHEDULE[d.getDay()]?.[period]||''}
+function updateLessonPreview(autoSubject=false){
+ const date=$('#lessonDate').value, period=$('#period').value, lesson=lessonFor(date,period);
+ $('#lessonTime').value=period?PERIOD_TIME[period]||'':'';
+ const box=$('#lessonPreview');
+ if(date&&period){const day=parseDate(date).toLocaleDateString('vi-VN',{weekday:'long',day:'2-digit',month:'2-digit'});box.classList.add('show');box.innerHTML=`📚 <b>${day} • ${period} • ${PERIOD_TIME[period]||''}</b>${lesson?`<br>Môn theo TKB: <b>${lesson}</b>`:'<br><b>Tiết này không có môn trong TKB.</b>'}`; if(autoSubject&&lesson){const opts=[...$('#subject').options];const exact=opts.find(o=>o.text===lesson||o.value===lesson);if(exact)$('#subject').value=exact.value;}}else{box.classList.remove('show');box.innerHTML='';}
+}
+function nextDateForWeekday(day){const d=new Date();let diff=(day-d.getDay()+7)%7;if(diff===0&&d.getHours()>=17)diff=7;d.setDate(d.getDate()+diff);return ymd(d)}
+function openFromTimetable(day,period){const lesson=SCHEDULE[day]?.[period]||'';openModal();$('#lessonDate').value=nextDateForWeekday(day);$('#period').value=period;updateLessonPreview(true);if(lesson&&!$('#subject').value){$('#subject').value='Khác'}$('#note').value=`${period} • ${PERIOD_TIME[period]||''}`;}
+function load(){try{data=JSON.parse(localStorage.getItem(KEY)||'[]')}catch{data=[]} if(!data.length) seed();}
+function save(){localStorage.setItem(KEY,JSON.stringify(data)); render()}
+function seed(){
+ const t=new Date(), tomorrow=new Date(t);tomorrow.setDate(t.getDate()+1);const two=new Date(t);two.setDate(t.getDate()+2);const three=new Date(t);three.setDate(t.getDate()+3);
+ data=[
+  {id:uid(),subject:'Toán',type:'homework',content:'Làm BTVN bài luyện tập 2 và 3.',assigned:ymd(t),due:ymd(tomorrow),author:'',note:'Kiểm tra lại đáp án trước khi nộp',priority:true,done:false,created:Date.now()},
+  {id:uid(),subject:'Khoa học tự nhiên',type:'note',content:'Đọc trước bài mới và ghi 3 ý chính vào vở.',assigned:ymd(t),due:ymd(two),author:'',note:'',priority:false,done:false,created:Date.now()+1},
+  {id:uid(),subject:'Tiếng Anh',type:'test',content:'Ôn từ vựng Unit 2 để kiểm tra nhanh đầu giờ.',assigned:ymd(t),due:ymd(three),author:'',note:'',priority:false,done:false,created:Date.now()+2}
+ ]; localStorage.setItem(KEY,JSON.stringify(data));
+}
+function openModal(item=null){editingId=item?.id||null; $('#modalTitle').textContent=item?'Chỉnh sửa BTVN / dặn dò':'Thêm BTVN / dặn dò';
+ $('#subject').value=item?.subject||'';$('#type').value=item?.type||'homework';$('#content').value=item?.content||'';$('#lessonDate').value=item?.lessonDate||item?.assigned||ymd();$('#period').value=item?.period||'';$('#assigned').value=item?.assigned||ymd();$('#due').value=item?.due||ymd();$('#author').value=item?.author||'';$('#note').value=item?.note||'';$('#priority').checked=!!item?.priority;updateLessonPreview(false);$('#modalWrap').classList.add('show');
+}
+function closeModal(){editingId=null;$('#hwForm').reset();$('#modalWrap').classList.remove('show')}
+function typeLabel(t){return t==='note'?'DẶN DÒ':t==='test'?'KIỂM TRA':'BÀI TẬP'}
+function filtered(){const q=$('#searchInput').value.trim().toLowerCase(); return data.filter(x=>{
+ const qok=!q||(x.subject+' '+x.content+' '+(x.note||'')).toLowerCase().includes(q);
+ const fok=currentFilter==='all'||x.type===currentFilter||(currentFilter==='priority'&&x.priority)||(currentFilter==='done'&&x.done);
+ return qok&&fok;
+}).sort((a,b)=>a.due.localeCompare(b.due)||Number(b.priority)-Number(a.priority)||a.created-b.created)}
+function escapeHtml(s=''){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[c]))}
+function render(){
+ const today=ymd(); const list=filtered();
+ $('#statAll').textContent=data.length;$('#statToday').textContent=data.filter(x=>x.due===today&&!x.done).length;$('#statOverdue').textContent=data.filter(x=>x.due<today&&!x.done).length;$('#statDone').textContent=data.filter(x=>x.done).length;
+ const groups={}; list.forEach(x=>(groups[x.due]??=[]).push(x)); const root=$('#list');
+ if(!list.length){root.innerHTML='<div class="empty"><div style="font-size:42px">📘</div><b>Chưa có nội dung phù hợp</b><div style="margin-top:6px">Bấm nút ＋ để thêm BTVN hoặc dặn dò mới.</div></div>'; return}
+ root.innerHTML=Object.keys(groups).sort().map(d=>{
+   let title=d===today?'HÔM NAY • '+fmt(d):d<today?'QUÁ HẠN • '+fmt(d):fmt(d);
+   return `<section class="day-group"><div class="day-title"><h4>${title}</h4><span class="count">${groups[d].length} mục</span></div><div class="items">${groups[d].map(card).join('')}</div></section>`
+ }).join('')
+}
+function card(x){const overdue=x.due<ymd()&&!x.done; return `<article class="hw ${x.priority?'priority':''} ${x.done?'done':''}">
+ <div class="row"><span class="subject">${escapeHtml(x.subject)}</span><div style="display:flex;gap:6px;align-items:center">${x.priority?'<span class="priority-pill">★ ƯU TIÊN</span>':''}<span class="type ${x.type}">${typeLabel(x.type)}</span></div></div>
+ <div class="content">${escapeHtml(x.content)}</div>
+ <div class="meta"><span>📅 Hạn: <b>${shortFmt(x.due)}</b>${overdue?' • <b style="color:#c33">đã quá hạn</b>':''}</span>${x.lessonDate?`<span>🏫 Ngày học: <b>${shortFmt(x.lessonDate)}</b></span>`:''}${x.period?`<span>⏱ <b>${escapeHtml(x.period)}</b> • ${escapeHtml(x.lessonTime||PERIOD_TIME[x.period]||'')}</span>`:''}${x.note?`<span>📝 ${escapeHtml(x.note)}</span>`:''}${x.author?`<span>👤 ${escapeHtml(x.author)}</span>`:''}</div>
+ <div class="item-actions"><button class="mini donebtn" onclick="toggleDone('${x.id}')">${x.done?'↩ Bỏ hoàn thành':'✓ Hoàn thành'}</button><button class="mini edit" onclick="editItem('${x.id}')">Sửa</button><button class="mini delete" onclick="removeItem('${x.id}')">Xóa</button></div>
+ </article>`}
+window.toggleDone=id=>{const x=data.find(i=>i.id===id);if(x){x.done=!x.done;save()}};
+window.editItem=id=>{const x=data.find(i=>i.id===id);if(x)openModal(x)};
+window.removeItem=id=>{const x=data.find(i=>i.id===id);if(x&&confirm(`Xóa mục “${x.subject}: ${x.content}”?`)){data=data.filter(i=>i.id!==id);save()}};
+$('#hwForm').addEventListener('submit',e=>{e.preventDefault(); const obj={subject:$('#subject').value,type:$('#type').value,content:$('#content').value.trim(),lessonDate:$('#lessonDate').value,period:$('#period').value,lessonTime:$('#lessonTime').value,assigned:$('#assigned').value,due:$('#due').value,author:$('#author').value.trim(),note:$('#note').value.trim(),priority:$('#priority').checked};
+ if(editingId){const i=data.findIndex(x=>x.id===editingId);data[i]={...data[i],...obj}}else data.push({id:uid(),...obj,done:false,created:Date.now()});save();closeModal();});
+$('#addBtn').onclick=$('#fab').onclick=()=>openModal();$('#cancelBtn').onclick=closeModal;$('#modalWrap').addEventListener('click',e=>{if(e.target===$('#modalWrap'))closeModal()});
+$('#lessonDate').addEventListener('change',()=>updateLessonPreview(true));$('#period').addEventListener('change',()=>updateLessonPreview(true));
+$$('.tkb-cell[data-day]').forEach(c=>c.addEventListener('click',()=>openFromTimetable(Number(c.dataset.day),c.dataset.period)));
+$('#tkbBtn').onclick=()=>$('#timetable').scrollIntoView({behavior:'smooth',block:'start'});
+$('#scrollHomeworkBtn').onclick=()=>$('#homeworkSection').scrollIntoView({behavior:'smooth',block:'start'});
+$('#todayScheduleBtn').onclick=()=>{const day=new Date().getDay();const cells=$$(`.tkb-cell[data-day="${day}"]`);if(!cells.length){alert('Hôm nay không có tiết học trong thời khóa biểu từ Thứ 2 đến Thứ 6.');return;}cells[0].scrollIntoView({behavior:'smooth',block:'center',inline:'center'});cells.forEach(c=>{c.style.outline='3px solid #ffcc4d';setTimeout(()=>c.style.outline='',1800)});};
+$$('.chip').forEach(b=>b.onclick=()=>{$$('.chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentFilter=b.dataset.filter;render()});$('#searchInput').addEventListener('input',render);
+$('#exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify({app:'Sổ nhắc học tập 6A2',version:1,exportedAt:new Date().toISOString(),items:data},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`BTVN_6A2_${ymd()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+$('#importBtn').onclick=()=>$('#importFile').click();$('#importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const j=JSON.parse(await f.text());const items=Array.isArray(j)?j:j.items;if(!Array.isArray(items))throw Error();if(confirm(`Nhập ${items.length} mục và thay thế dữ liệu hiện tại?`)){data=items;save()}}catch{alert('File dữ liệu không hợp lệ.')}e.target.value=''});
+(function init(){const now=new Date();$('#heroDay').textContent=now.getDate();$('#heroMonth').textContent='Tháng '+(now.getMonth()+1);load();render()})();
+</script>
+</body>
+</html>
